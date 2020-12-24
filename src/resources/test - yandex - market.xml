@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestYandexMarket">
+
+    <listeners>
+        <listener class-name="Web.RetryMethods.RetryListenerClass"/>
+    </listeners>
+
+    <test name="TestYandexMarket">
+        <classes>
+            <class name="TestYandex.TestYandexMarket"/>
+        </classes>
+    </test>
+
+</suite> 

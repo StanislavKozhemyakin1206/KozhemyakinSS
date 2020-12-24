@@ -1,0 +1,10 @@
+.idea/
+.gitignore/
+target/
+out/
+test-output/
+ExtentReports/
+*.log
+allure-results
+*.allure
+src/resources/ScreenShot/*
