@@ -3,7 +3,7 @@
 <suite name="TestYandexMarket">
 
     <listeners>
-        <listener class-name="Web.RetryMethods.RetryListenerClass"/>
+        <listener class-name="Web.AllListeners.Listener"/>
     </listeners>
 
     <test name="TestYandexMarket">

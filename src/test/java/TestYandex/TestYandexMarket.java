@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-public class TestYandexMarket extends InitialDriver {
+public class TestYandexMarket extends InitialDriver{
 
     private YandexMarketPage yandexMarketPage;
     private Windows windows;
@@ -28,6 +28,7 @@ public class TestYandexMarket extends InitialDriver {
     public void checkSearchField() {
         yandexMarketPage.searchProduct(YandexMarketPage.TV);
         yandexMarketPage.closeSwimForm();
+        yandexMarketPage.checkCardForm();
         Assert.assertTrue(yandexMarketPage.checkOpenPage(YandexMarketPage.TV));
     }
 
@@ -63,9 +64,9 @@ public class TestYandexMarket extends InitialDriver {
         Assert.assertTrue(element.isVisibility(YandexMarketPage.productDeleteFromBasket));
     }
 
-    @AfterClass(alwaysRun = true)
-    public void close() {
-        InitialDriver.getInstance().destroy();
+    @AfterClass()
+    public void quit() {
+        destroy();
     }
 
 }

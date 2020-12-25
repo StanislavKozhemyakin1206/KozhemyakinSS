@@ -1,6 +1,6 @@
 package Web.AllListeners;
 
-import Reports.ExtentReport_4.ExtentTestManager;
+import Reports.ExtentReport.ExtentTestManager;
 import TestRail.*;
 import TestRail.TestRailMethods.*;
 import Utility.*;
@@ -43,14 +43,12 @@ public class Listener implements ITestListener, ISuiteListener, IInvokedMethodLi
 
     @Override
     public void onFinish(ITestContext arg0) {
+		InitialDriver.getInstance().destroy();
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult arg0) {
 		ExtentTestManager.getInstance().initialReport(arg0.getName()).flush();
-
-		InitialDriver.getInstance().destroy();
-
 		resultAdd(arg0);
 
     }

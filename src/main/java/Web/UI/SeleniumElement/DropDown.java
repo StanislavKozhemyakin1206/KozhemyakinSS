@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 
-public class DropDown extends Element{
+public class DropDown extends Element {
 
     public String getSelected(By locator) {
         waitUntilClickable(locator);
@@ -19,21 +19,20 @@ public class DropDown extends Element{
         return select.getOptions().size();
     }
 
-    public void selectDropDownByIndex (By locator, int index) {
+    public void selectDropDownByIndex(By locator, int index) {
         Select select = new Select(waitUntilClickable(locator));
-        WebElement element=waitUntilVisible(waitUntilVisible(locator).findElement((By.cssSelector("option:nth-child("+index+")"))));
-        System.out.println("Is Element Visibility: "+isVisibility(element));
-        System.out.println("Element -> " + waitUntilVisible(locator).findElement((By.cssSelector("option:nth-child("+index+")"))).getText());
+        WebElement element = waitUntilVisible(waitUntilVisible(locator).findElement((By.cssSelector("option:nth-child(" + index + ")"))));
+        System.out.println("Is Element Visibility: " + isVisibility(element));
+        System.out.println("Element -> " + waitUntilVisible(locator).findElement((By.cssSelector("option:nth-child(" + index + ")"))).getText());
         sleep(1000);
         select.selectByIndex(index);
     }
 
 
-    public void selectDropDownByValue (By locator, String value) {
+    public void selectDropDownByValue(By locator, String value) {
         Select select = new Select(waitUntilClickable(locator));
-        WebElement element=waitUntilVisible(waitUntilVisible(locator).findElement(By.xpath(".//option[@value = '" + value + "']")));
+        WebElement element = waitUntilVisible(waitUntilVisible(locator).findElement(By.xpath(".//option[@value = '" + value + "']")));
         sleep(1000);
         select.selectByValue(value);
-//        waitUntilTextPresent(locator, "7621");
     }
 }

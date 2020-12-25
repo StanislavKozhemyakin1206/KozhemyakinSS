@@ -26,7 +26,7 @@ public class InitialDriver extends Options {
      * There is pre-initialization of the driver and his way that is it prior to calling object
      */
     private static ThreadLocal<InitialDriver> driverThread = new ThreadLocal<>();
-    private WebDriver driver;
+    public WebDriver driver;
 
     public static InitialDriver getInstance() {
         if (driverThread.get() == null) {
@@ -57,7 +57,7 @@ public class InitialDriver extends Options {
         } else {
             System.setProperty("webdriver.chrome.driver", driverPath);
         }
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions(false));
         eventDriver = new EventFiringWebDriver(driver);
         handler = new EventHandler() {
         };

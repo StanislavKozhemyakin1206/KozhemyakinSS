@@ -6,7 +6,6 @@ import java.util.Iterator;
 public class Windows extends Element {
 
     public void navigate(String url) {
-        driver.manage().window().maximize();
         driver.navigate().to(url);
     }
 

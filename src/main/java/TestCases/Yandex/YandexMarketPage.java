@@ -1,17 +1,14 @@
 package TestCases.Yandex;
 
-import Web.UI.SeleniumElement.Element;
-import Web.UI.SeleniumElement.Fields;
-import Web.UI.SeleniumElement.Mouse;
-import Web.UI.SeleniumElement.Windows;
+import Web.UI.SeleniumElement.*;
 import org.openqa.selenium.By;
 
 public class YandexMarketPage {
 
     public static final String MARKET_YANDEX_BY = "https://market.yandex.by/";
+    public static final String TV = "Телевизоры";
     public static final By headerSearch = By.id("header-search");
     public static final By findButton = By.xpath("//button[@type='submit']");
-    public static final String TV = "Телевизоры";
     public static final By buttonUnderstand = By.xpath("//span[contains(text(), 'Понятно')]");
     public static final By myReviewPage = By.xpath("//a[contains(text(), 'Мой отзыв о')]");
     public static final By buttonReview = By.xpath("//span[contains(text(), 'Оставить отзыв')]");
@@ -20,14 +17,22 @@ public class YandexMarketPage {
     public static final By productDeleteFromBasket = By.xpath("//div[contains(text(), 'Товар удалён из избранного')]");
     public static final By deleteBtn = By.xpath("//span[contains(text(), 'Удалить')]");
     public static final By buttonGoToFavorites = By.xpath("//span[contains(text(), 'Перейти в избранное')]");
-    Element element = new Element();
+    public static final By cardProduct = By.xpath("//a[@data-zone-name='card']");
+    public static final By buttonFavorites = By.xpath("//span[contains(text(), 'В избранное')]/parent::div");
+    ElementProperties element = new ElementProperties();
     Fields fields = new Fields();
     Mouse mouse = new Mouse();
     Windows windows = new Windows();
 
+    public void checkCardForm() {
+        if (element.isDisplayed(cardProduct)) {
+            element.waitAndClick(cardProduct);
+        }
+    }
+
     public void searchProduct(String nameProduct) {
-        element.isVisibility(headerSearch);
-        fields.input(headerSearch, nameProduct);
+        element.isDisplayed(headerSearch);
+        fields.inputOnExist(headerSearch, nameProduct);
         element.waitAndClick(findButton);
     }
 
@@ -51,7 +56,7 @@ public class YandexMarketPage {
     }
 
     public void closeSwimForm() {
-        if (element.isVisibility(buttonUnderstand)) {
+        if (element.isDisplayed(buttonUnderstand)) {
             element.waitAndClick(buttonUnderstand);
         }
     }
@@ -76,7 +81,7 @@ public class YandexMarketPage {
     public void addToFavorites(String nameProduct) {
         element.waitAndClick(By.xpath("//a[contains(@href, 'product--" + nameProduct + "')]"));
         windows.switchToLastTab();
-        element.waitAndClick(By.xpath("//span[contains(text(), 'В избранное')]/parent::div"));
+        element.waitAndClick(buttonFavorites);
         element.waitAndClick(buttonGoToFavorites);
     }
 

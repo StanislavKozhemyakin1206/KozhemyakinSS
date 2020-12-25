@@ -17,18 +17,15 @@ import static Utility.Base.TIME_OUT;
 public class Element {
 
     protected WebDriver driver;
+
     public Element() {
-       driver = InitialDriver.getInstance().getDriver();
+        driver = InitialDriver.getInstance().getDriver();
     }
 
-    void sleep(int ms)
-    {
-        try
-        {
+    void sleep(int ms) {
+        try {
             Thread.sleep(ms);
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
 
         }
     }
@@ -97,11 +94,9 @@ public class Element {
         try {
             getWebElement(ExpectedConditions.presenceOfElementLocated(locator));
             return true;
+        } catch (Exception ex) {
+            return false;
         }
-      catch (Exception ex)
-      {
-          return false;
-      }
     }
 
     public boolean isSelected(WebElement element) {
@@ -111,13 +106,15 @@ public class Element {
     public boolean isSelected(By locator) {
         return getWebStateOfElement(ExpectedConditions.elementToBeSelected(locator));
     }
+
     public boolean isClickable(By locator) {
-        return  waitUntilVisible(locator).isEnabled();
+        return waitUntilVisible(locator).isEnabled();
     }
 
     public boolean isClickable(WebElement element) {
         return getWebElement(ExpectedConditions.elementToBeClickable(element)).isEnabled();
     }
+
     public boolean isVisibility(By locator) {
         return getWebElement(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
     }
