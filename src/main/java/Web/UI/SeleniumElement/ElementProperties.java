@@ -95,7 +95,7 @@ public class ElementProperties extends Element {
     public void uploadFile(By locator, String pathToFile)
     {
         WebElement uploadElement = waitUntilClickable(locator);
-        uploadElement.sendKeys(System.getProperty("user.dir")+ File.separator+"src" + File.separator+"resources"+ File.separator+pathToFile);
+        uploadElement.sendKeys(System.getProperty("user.dir")+ File.separator + "src" + File.separator + "test" + File.separator + "resources"+ File.separator+pathToFile);
         waitUntilClickable(locator);
     }
 }

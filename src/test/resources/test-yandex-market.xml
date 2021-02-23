@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestYandexMarket">
+<suite name="test-yandex-market">
 
     <listeners>
         <listener class-name="Web.AllListeners.Listener"/>

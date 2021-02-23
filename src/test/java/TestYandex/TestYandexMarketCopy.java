@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
-public class TestYandexMarket extends InitialDriver {
+public class TestYandexMarketCopy extends InitialDriver{
 
     private YandexMarketPage yandexMarketPage;
     private Windows windows;
@@ -25,7 +25,7 @@ public class TestYandexMarket extends InitialDriver {
     }
 
     @Test(priority = 1)
-    public void checkSearchField() {
+    public void checkSearchField1() {
         yandexMarketPage.searchProduct(YandexMarketPage.TV);
         yandexMarketPage.closeSwimForm();
         yandexMarketPage.checkCardForm();
@@ -33,33 +33,33 @@ public class TestYandexMarket extends InitialDriver {
     }
 
     @Test(priority = 2)
-    public void selectSpecificProduct() {
+    public void selectSpecificProduct1() {
         yandexMarketPage.selectBBK();
         Assert.assertTrue(yandexMarketPage.checkOpenProducts("Телевизор BBK"));
     }
 
     @Test(priority = 3)
-    public void checkPhoneAfterCatalog() {
+    public void checkPhoneAfterCatalog1() {
         yandexMarketPage.goToCatalog();
         yandexMarketPage.checkProductInCatalog("Электроника", "Смартфоны");
         Assert.assertTrue(yandexMarketPage.checkOpenPage("Смартфоны"));
     }
 
     @Test(priority = 4)
-    public void checkMyComments() {
+    public void checkMyComments1() {
         yandexMarketPage.checkButtonComments("smartfon");
         Assert.assertTrue(element.isVisibility(YandexMarketPage.myReviewPage));
     }
 
     @Test(priority = 5)
-    public void addToFavorites() {
+    public void addToFavorites1() {
         windows.leaveOneTab();
         yandexMarketPage.addToFavorites("smartfon");
         Assert.assertTrue(element.isVisibility(YandexMarketPage.titleFavorites));
     }
 
     @Test(priority = 6)
-    public void deleteFromFavorites() {
+    public void deleteFromFavorites1() {
         yandexMarketPage.deleteFromFavorites();
         Assert.assertTrue(element.isVisibility(YandexMarketPage.productDeleteFromBasket));
     }

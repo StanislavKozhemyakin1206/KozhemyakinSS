@@ -40,6 +40,7 @@ public class UtilsMethods {
     {
         Instance=null;
     }
+
     public HashMap<String, String> screenFullPage(ITestResult arg)
     {
         HashMap<String, String> myReport=new HashMap<>();

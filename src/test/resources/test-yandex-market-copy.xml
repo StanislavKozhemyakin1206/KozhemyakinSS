@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="test-yandex-market-copy">
+
+    <listeners>
+        <listener class-name="Web.AllListeners.Listener"/>
+    </listeners>
+
+    <test name="TestYandexMarketCopy">
+        <classes>
+            <class name="TestYandex.TestYandexMarketCopy"/>
+        </classes>
+    </test>
+
+</suite> 

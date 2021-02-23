@@ -20,7 +20,7 @@ abstract class Options {
 
         HashMap<String, Object> prefs = new HashMap<>();
         prefs.put("plugins.always_open_pdf_externally", true);
-        prefs.put("download.default_directory", System.getProperty("user.dir") + File.separator + "src" + File.separator + "resources" + File.separator + "DownloadedPDF");
+        prefs.put("download.default_directory", System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "DownloadedPDF");
         options.setExperimentalOption("prefs", prefs);
         return options;
     }

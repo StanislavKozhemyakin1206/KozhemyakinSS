@@ -12,7 +12,7 @@ public class PropertiesRead {
         String result = "";
         String myProject = System.getProperty("user.dir");
         try {
-            String s = myProject + "/src/resources/" + propertiesFileName;
+            String s = myProject + "/src/test/resources/" + propertiesFileName;
             InputStream input = new FileInputStream(s);
             Properties prop = new Properties();
             prop.load(input);

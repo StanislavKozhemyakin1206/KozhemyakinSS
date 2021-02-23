@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="test-yandex-market-two-threads">
+
+    <listeners>
+        <listener class-name="Web.AllListeners.Listener"/>
+    </listeners>
+
+    <suite-files>
+        <suite-file path="test-yandex-market.xml"/>
+        <suite-file path="test-yandex-market-copy.xml"/>
+    </suite-files>
+</suite> 
